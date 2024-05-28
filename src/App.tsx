@@ -1,21 +1,20 @@
+import { RouterProvider } from 'react-router-dom';
 import './global.css';
-import { ArticlePage } from './pages/ArticlesPage';
+import { router } from 'router';
 
 
 export const App = () => {
-  return <ArticlePage />;
+  return <RouterProvider router={router} />;
 };
 
-// 1. В проекте, который мы пишем на занятии добавьте общий и переиспользуемый компонент кнопки для кнопок like, vies, bookmarks, comment. И использовать его для всех 4-х кнопок.
-// В прокете даже есть уже компонент IconButton его нужно просто немного дописать.
-// Напомню, что функции можно тоже передавать в пропы
+//const Compmonent = () => {
+ 
+//  const currentUrl= '';
+//  const fallbakck = '';
 
-// 2. В этом же проекте в ArticlePage сейчас карточки отрисовываются на основе массива с данными.
-// Задача сделать так, чтобы они отрисоывавались полагаясь на стейт, начальное значение которого будет mockPosts
+//  if (currentUrl === '/') return <div>Корневой путь</div>;
 
-// 3. Делается только после выполнения второго пункта.
-// Добавить возможность поиска по названиям постов.
-// Тут два пути:
-// Простой - добавить в компонент ArticlePage инпут и через него реализовать поиск по постам
+//  if (currentUrl === 'events') return <div>Раздел События</div>;
 
-// Посложнее, но не сильно - в PageWrapper в Header есть инпут рядом с кнопокй "Новый пост". Сделать поиск по статьям через этот уже готовый инпут.
+//  return fallbakck;
+//};
