@@ -2,10 +2,11 @@ import { Root } from 'features/core/Root';
 import { ChampionshipsPage } from 'pages/ChampionshipsPage';
 import { EventsPage } from 'pages/EventsPage';
 import { createBrowserRouter } from 'react-router-dom';
+import { ROUTES } from './routes';
 
 export const router = createBrowserRouter([
     {
-        path: '/',
+        path: ROUTES.ROOT,
         element: <Root />,
         children: [
           {
@@ -13,7 +14,7 @@ export const router = createBrowserRouter([
             element: <EventsPage />,
           },
           {
-            path: '/championships',
+            path: ROUTES.CHAMPIONSHIPS,
             element: <ChampionshipsPage />,
         },
         ],
