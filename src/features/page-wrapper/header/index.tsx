@@ -12,13 +12,13 @@ export const Header = ({ onSearchChange }: HeaderProps) => {
         <img className={styles.logo} src={logo} alt="logo"/>
       </div>
       <div className={styles.centerSection}>
-        <button className={styles.PostButton}>События</button>
+        <button className={styles.PostButton}>Профиль</button>
       </div>
       <div className={styles.centerSection}>
         <button className={styles.PostButton}>Результаты</button>
       </div>
       <div className={styles.centerSection}>
-        <button className={styles.PostButton}>Чемпионаты</button>
+        <button className={styles.PostButton}>Мои документы</button>
       </div>
       <div className={styles.centerSection}>
         <button className={styles.PostButton}>Фото</button>

@@ -1,15 +1,19 @@
+import classes from 'classnames';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './left-menu.module.css';
+
+
 
 export const Sidebar = () => {
   return (
     <nav className={styles.leftMenu}>
       <div>
-        <a className={styles.menuItem}>
-          <span>Профиль</span>
-        </a>
-        <a className={styles.menuItem}>
-          <span>Документы</span>
-        </a>
+        <NavLink to="/" className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
+          <span>События</span>
+        </NavLink>
+        <NavLink to="/championships" className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
+          <span>Чемпионаты</span>
+        </NavLink>
         <a className={styles.menuItem}>
           <span>Регистрация</span>
         </a>

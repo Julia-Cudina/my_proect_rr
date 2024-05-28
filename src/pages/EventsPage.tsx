@@ -4,7 +4,7 @@ import { PageWrapper } from '../features/page-wrapper';
 import { mockPosts } from '../shared/mocks/mockArticles';
 
 
-export const ArticlePage = () => {
+export const EventsPage = () => {
   const [articles, setArticles] = useState(mockPosts);
   // const [searchValue, setSearchValue] = useState('');
 
@@ -19,15 +19,11 @@ export const ArticlePage = () => {
   };
 
   return (
-    <PageWrapper onSearchChange={onSearchChange}>
       <div>
         <h2>События</h2> 
         
         <ArticleList articles={articles} />
       </div>
-      
-
-    </PageWrapper>
 
   );
 };
