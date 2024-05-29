@@ -3,6 +3,7 @@ import { ChampionshipsPage } from 'pages/ChampionshipsPage';
 import { EventsPage } from 'pages/EventsPage';
 import { createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './routes';
+import { ArticlePage } from 'pages/ArticlePage';
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,11 @@ export const router = createBrowserRouter([
           {
             path: ROUTES.CHAMPIONSHIPS,
             element: <ChampionshipsPage />,
+        },
+        {
+          path: `${ROUTES.ARTICLE}/:id`,
+
+          element: <ArticlePage />,
         },
         ],
     },

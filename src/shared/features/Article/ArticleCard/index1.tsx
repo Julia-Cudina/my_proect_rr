@@ -3,6 +3,8 @@ import coverImg from 'assets/images/cover4.webp';
 import { Article } from '../../../types/article';
 import { StatsButtons } from '../ArticleStatsButtons/StatsButtons';
 import s from './post.module.css';
+import { Link } from 'react-router-dom';
+import { ROUTES } from 'router/routes';
 
 type PostCardProps = {
   postData: Article;
@@ -29,7 +31,9 @@ export const PostCard = (props: PostCardProps) => {
         </div>
       </div>
 
+      <Link to={`${ROUTES.ARTICLE}/${postData.id}`}>
       <h2>{postData.title}</h2>
+      </Link>
 
       <div className={s.coverImage}>
         <img src={coverImg} alt="cover" />
