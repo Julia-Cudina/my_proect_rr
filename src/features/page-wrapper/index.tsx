@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ChangeEvent, ReactNode } from 'react';
 import { BaseContainer } from './base-container';
 import { ContentWrapper } from './content-wrapper';
 import { Header, HeaderProps } from './header';

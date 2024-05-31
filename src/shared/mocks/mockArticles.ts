@@ -9,7 +9,7 @@ export const mockPosts: Article[] = [
     section: 'Школа бега',
     authorName: 'Артем Денисов',
     publicationDate: '13 апреля 2024',
-    title: 'Открытые тренировки в парке "Швейрия"',
+    title: 'Открытые тренировки в парке "Швейцария"',
     coverImage: cover,
     views: 13,
     likes: 20,

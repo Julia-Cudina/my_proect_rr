@@ -1,6 +1,8 @@
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Article } from '../features/Article/ui/Article';
 import { ROUTES } from 'router/routes';
+import { ChangeEvent } from 'react';
+
 
 export const ArticlePage = () => {
     const {id} = useParams();
@@ -9,7 +11,10 @@ export const ArticlePage = () => {
 
     const [params, setParams] = useSearchParams();
 
+
     console.log(location);
+
+
 
 
     if(!id) return <h2>Статьи не существует</h2>;
@@ -32,10 +37,11 @@ export const ArticlePage = () => {
         setParams();
     }}
     >
-        Препятствия
+        Полоса препятствий
         </button>
 
     <Article id={Number(id)} />;
+
     </>
     );
 };
