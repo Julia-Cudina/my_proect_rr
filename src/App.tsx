@@ -4,6 +4,7 @@ import { router } from 'router';
 
 
 export const App = () => {
+  console.log('render App');
   return <RouterProvider router={router} />;
 };
 

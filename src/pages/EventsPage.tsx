@@ -1,29 +1,45 @@
-import { ChangeEvent, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArticleList } from '../features/Articles/ui/ArticleList';
-import { PageWrapper } from '../features/page-wrapper';
-import { mockPosts } from '../shared/mocks/mockArticles';
-
+import { Article } from '../shared/types/article';
 
 export const EventsPage = () => {
-  const [articles, setArticles] = useState(mockPosts);
-  // const [searchValue, setSearchValue] = useState('');
+  const [articles, setArticles] = useState<Article[]>([]);
 
-  // const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const filteredArticles = mockPosts.filter(article =>
-      article.title.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase()),
-    );
+  const [count, setCount] = useState(0);
 
-    return setArticles(filteredArticles);
-  };
+  const increment = () => setCount(prev => prev + 1);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    fetch('https://0df6c884deaa53e2.mokky.dev/events')
+      .then(res => res.json())
+      .then((articlesData: Article[]) => {
+        setArticles(articlesData);
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return (
-      <div>
-        <h2>События</h2> 
-        
-        <ArticleList articles={articles} />
-      </div>
+    <div>
+      <h2>События</h2>
+      <h3>{count}</h3>
+      <button onClick={increment}>increment</button>
 
+      {isLoading && <div>Loading...</div>}
+
+      {!!articles && !isLoading && <ArticleList articles={articles} />}
+    </div>
   );
 };
+
+//console.log('render EventsPage');
+
+// useEffect(() => {
+//   console.log('mount');
+
+//   return () => console.log('unmount')
+// }, []);

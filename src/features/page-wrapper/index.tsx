@@ -11,6 +11,7 @@ type PageWrapperProps = {
 };
 
 export const PageWrapper = ({ children, onSearchChange }: PageWrapperProps) => {
+  console.log('render PageWrapper');
   return (
     <BaseContainer>
       <Header onSearchChange={onSearchChange} />
