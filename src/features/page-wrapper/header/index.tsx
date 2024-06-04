@@ -1,7 +1,9 @@
 import avatar from 'assets/images/avatar.jpg';
+import logo from 'assets/images/logo.jpg';
 import { ChangeEvent } from 'react';
-import styles from './header.module.css'; 
-import logo from 'assets/images/logo.jpg'
+import { Link } from 'react-router-dom';
+import { ROUTES } from 'router/routes';
+import styles from './header.module.css';
 
 export type HeaderProps = { onSearchChange?: (e: ChangeEvent<HTMLInputElement>) => void };
 
@@ -9,7 +11,7 @@ export const Header = ({ onSearchChange }: HeaderProps) => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.leftSection}>
-        <img className={styles.logo} src={logo} alt="logo"/>
+        <img className={styles.logo} src={logo} alt="logo" />
       </div>
       <div className={styles.centerSection}>
         <button className={styles.PostButton}>Профиль</button>
@@ -32,12 +34,16 @@ export const Header = ({ onSearchChange }: HeaderProps) => {
       <div className={styles.centerSection}>
         <button className={styles.PostButton}>Организаторы</button>
       </div>
-      
+
+      <div className={styles.rightSection}>
         {/* <div className={styles.avatar}>User Avatar</div> */}
 
         <img className={styles.avatar} src={avatar} alt="avatar" />
 
-     
+        <Link to={ROUTES.AUTH} className={styles.newPostButton}>
+          Войти
+        </Link>
+      </div>
     </header>
   );
 };

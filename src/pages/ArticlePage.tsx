@@ -1,53 +1,37 @@
-import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { Article } from '../features/Article/ui/Article';
-import { ROUTES } from 'router/routes';
-import { ChangeEvent, useState } from 'react';
-import { mockPosts } from 'shared/mocks/mockArticles';
-
 
 export const ArticlePage = () => {
-    const {id} = useParams();
-    const naigate = useNavigate();
-    const location = useLocation();
-    const [searchValue, setsearchValue] = useState('');
-   
+  const { id } = useParams();
+  //const naigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
+  const [params, setParams] = useSearchParams();
 
-    const [params, setParams] = useSearchParams();
-    const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => setsearchValue(e.target.value);
+  if (!id) return <h2>Статьи не существует</h2>;
 
-
-    console.log(location);
-    console.log(searchValue);
-
-
-
-
-    if(!id) return <h2>Статьи не существует</h2>;
-
-    return (
+  return (
     <>
-    <button onClick={() => naigate(ROUTES.ROOT)}>Вернуться</button>
-
-    <button
-    onClick={() => {
-        params.set('section', 'race')
-        setParams();
-    }}
-    >
+      {/*<button onClick={() => naigate(ROUTES.ROOT)}>Вернуться</button>*/}
+      {/* {Number(id) === 1 && <Navigate to={ROUTES.ROOT} />} */}
+      <button
+        onClick={() => {
+          params.set('id', '1');
+          setParams(params);
+        }}
+      >
         Забеги
-        </button>
-        <button
-    onClick={() => {
-        params.set('section', 'obstacles')
-        setParams();
-    }}
-    >
+      </button>
+      <button
+        onClick={() => {
+          params.set('id', '2');
+          setParams(params);
+        }}
+      >
         Полоса препятствий
-        </button>
-
-    <Article id={Number(id)} />;
-
+      </button>
+      <Article id={Number(params.get('id') ?? 1)} />;
     </>
-    );
+  );
 };
