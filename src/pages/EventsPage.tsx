@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ArticleList } from '../features/Articles/ui/ArticleList';
+import Select from '../shared/components/Select';
+import Loader from '../shared/components/loader';
 import { Article } from '../shared/types/article';
 
 export const EventsPage = () => {
@@ -7,39 +10,45 @@ export const EventsPage = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [count, setCount] = useState(0);
-
-  const increment = () => setCount(prev => prev + 1);
+  const [params, setParams] = useSearchParams();
+  const section = params.get('section') || 'all';
 
   useEffect(() => {
     setIsLoading(true);
 
-    fetch('https://0df6c884deaa53e2.mokky.dev/events')
+    const queryParams = section === 'all' ? '' : `?section=${section}`;
+
+    fetch('https://0df6c884deaa53e2.mokky.dev/events${queryParams}')
       .then(res => res.json())
       .then((articlesData: Article[]) => {
         setArticles(articlesData);
       })
       .catch(console.error)
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [section]);
 
   return (
     <div>
-      <h2>События</h2>
-      <h3>{count}</h3>
-      <button onClick={increment}>increment</button>
+      <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+        <h2>События</h2>
 
-      {isLoading && <div>Loading...</div>}
+        <Select
+          value={section}
+          onChange={e => {
+            params.set('section', e.target.value);
+            setParams(params);
+          }}
+          options={[
+            { label: 'Все', value: 'all' },
+            { label: 'Путешествия', value: 'Путешествия' },
+            { label: 'Животные', value: 'Животные' },
+          ]}
+        />
+      </div>
+
+      {isLoading && <Loader />}
 
       {!!articles && !isLoading && <ArticleList articles={articles} />}
     </div>
   );
 };
-
-//console.log('render EventsPage');
-
-// useEffect(() => {
-//   console.log('mount');
-
-//   return () => console.log('unmount')
-// }, []);

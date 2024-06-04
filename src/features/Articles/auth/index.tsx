@@ -25,7 +25,7 @@ export const LoginForm = () => {
             id="email"
             name="email"
             value={forrmState.email}
-            onChange={onChaange}
+            onChange={onChange}
             required
             autoComplete="off"
           />

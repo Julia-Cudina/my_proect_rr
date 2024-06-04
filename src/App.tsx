@@ -1,15 +1,20 @@
+import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
-import './global.css';
 import { router } from 'router';
-
+import './global.css';
+import { rootStore } from './store';
 
 export const App = () => {
-  console.log('render App');
-  return <RouterProvider router={router} />;
+  //console.log('render App');
+  return (
+    <Provider store={rootStore}>
+      <RouterProvider router={router} />;
+    </Provider>
+  );
 };
 
 //const Compmonent = () => {
- 
+
 //  const currentUrl= '';
 //  const fallbakck = '';
 
