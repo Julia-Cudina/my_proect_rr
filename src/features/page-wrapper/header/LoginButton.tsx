@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ROUTES } from 'router/routes';
 import { getToken, getUserAvatar } from 'store/userData';
+import { ROUTES } from '../../../router/routes';
 import styles from './header.module.css';
 
 export const LoginButton = () => {
