@@ -10,7 +10,8 @@ export const LoginForm = () => {
           <input type="text" id="email" name="email" required autoComplete="off" />
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="password" id="password" name="password" required />
+          <label htmlFor="password">Пароль:</label>
+          <input type="password" id="password" name="password" required />
         </div>
         <button type="submit">Войти</button>
       </form>
