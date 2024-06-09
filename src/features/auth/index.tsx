@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { ROUTES } from 'router/routes';
 import { getIsLoading, getToken, setIsLoading, setUserData } from '../../store/userData';
 import styles from './loginForm.module.css';
+import { post } from 'transport';
 
 type AuthResponse = {
   data: {
@@ -33,20 +34,8 @@ export const LoginForm = () => {
 
     dispatch(setIsLoading(true));
 
-    fetch('https://0df6c884deaa53e2.mokky.dev/auth', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(forrmState),
-    })
-      .then(res => {
-        if (!res.ok) throw res;
-
-        return res.json();
-      })
-      .then(({ data, token }: AuthResponse) => {
+    post<AuthResponse>('/auth', forrmState)
+      .then(({ data: {data, token } }) => {
         const userPayload = { ...data, token };
 
         dispatch(setUserData(userPayload));

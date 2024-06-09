@@ -1,4 +1,4 @@
-import { PostCard } from 'shared/features/Article/ArticleCard/index1';
+import { PostCard } from 'shared/features/Article/ArticleCard';
 import { Article } from 'shared/types/article';
 
 type ArticleListProps = {
@@ -15,3 +15,4 @@ export const ArticleList = ({ articles }: ArticleListProps) => {
     </div>
   );
 };
+

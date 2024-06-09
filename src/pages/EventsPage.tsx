@@ -4,6 +4,7 @@ import { ArticleList } from '../features/Articles/ui/ArticleList';
 import Select from '../shared/components/Select';
 import Loader from '../shared/components/loader';
 import { Article } from '../shared/types/article';
+import { get } from 'transport';
 
 export const EventsPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -18,10 +19,9 @@ export const EventsPage = () => {
 
     const queryParams = section === 'all' ? '' : `?section=${section}`;
 
-    fetch('https://0df6c884deaa53e2.mokky.dev/events${queryParams}')
-      .then(res => res.json())
-      .then((articlesData: Article[]) => {
-        setArticles(articlesData);
+    get<Article[]>('/events${queryParams}')
+      .then(({ data }) => {
+        setArticles(data);
       })
       .catch(console.error)
       .finally(() => setIsLoading(false));
@@ -40,8 +40,8 @@ export const EventsPage = () => {
           }}
           options={[
             { label: 'Все', value: 'all' },
-            { label: 'Путешествия', value: 'Путешествия' },
-            { label: 'Животные', value: 'Животные' },
+            { label: 'Забеги', value: 'Забеги' },
+            { label: 'Полоса препятствий', value: 'Полоса препятствий' },
           ]}
         />
       </div>
