@@ -19,7 +19,7 @@ export const EventsPage = () => {
 
     const queryParams = section === 'all' ? '' : `?section=${section}`;
 
-    get<Article[]>('/events${queryParams}')
+    get<Article[]>('/events', {params: section === 'all' ? {} : { section } })
       .then(({ data }) => {
         setArticles(data);
       })
