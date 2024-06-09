@@ -1,5 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import { postAuthData } from './effects';
 
 
 type User = {
@@ -13,6 +14,7 @@ type User = {
 type UserDataState ={
     userData: User;
     isLoading: boolean;
+    error: string | null
 };
 
 const initialState: UserDataState = {
@@ -23,12 +25,13 @@ const initialState: UserDataState = {
     avatar: null,
     token: null,  
    },
-   isLoading: false, 
+   isLoading: false,
+   error: null 
 
 };
 
 export const userDataSlice = createSlice({
-    name: 'userSlice',
+    name: 'userData',
     initialState,
     reducers: {
         setUserData: (state, action: PayloadAction<User>) => {
@@ -46,7 +49,22 @@ export const userDataSlice = createSlice({
             getIsLoading: (state) => state.isLoading,
             getUserAvatar: state => state.userData.avatar,
         },
+    extraReducers: builder => {
+        builder.addCase(postAuthData.pending, state => {
+            state.isLoading = true;
+        })
+        .addCase(postAuthData.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.userData = action.payload;
+        })
+        .addCase(postAuthData.rejected, (state, action) => {
+            state.isLoading = false
+            state.error = action.error.message || 'Что-то пошло не так'
+        });
+    },    
 });
+
+
 
 export const { setIsLoading, setUserData } = userDataSlice.actions;
 

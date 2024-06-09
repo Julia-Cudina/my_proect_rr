@@ -1,10 +1,12 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { ROUTES } from 'router/routes';
-import { getIsLoading, getToken, setIsLoading, setUserData } from '../../store/userData';
+import { getIsLoading, getToken } from '../../store/userData';
+import { AuthFormData } from '../../../src/store/userData/types';
+import { postAuthData } from '../../../src/store/userData/effects';
+import { useAppDispatch } from '../../../src/store';
 import styles from './loginForm.module.css';
-import { post } from 'transport';
 
 type AuthResponse = {
   data: {
@@ -17,11 +19,11 @@ type AuthResponse = {
 };
 
 export const LoginForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isLoading = useSelector(getIsLoading);
   const token = useSelector(getToken);
 
-  const [forrmState, setFormState] = useState({ email: '', password: '' });
+  const [forrmState, setFormState] = useState<AuthFormData>({ email: '', password: '' });
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -32,17 +34,9 @@ export const LoginForm = () => {
   const handeSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    dispatch(setIsLoading(true));
+    dispatch(postAuthData(forrmState));
 
-    post<AuthResponse>('/auth', forrmState)
-      .then(({ data: {data, token } }) => {
-        const userPayload = { ...data, token };
-
-        dispatch(setUserData(userPayload));
-      })
-
-      .catch(console.error)
-      .finally(() => dispatch(setIsLoading(false)));
+    
   };
 
   if (token) return <Navigate to={ROUTES.ROOT} />;
