@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../../router/routes';
 import { useAppDispatch } from '../../../store';
-import { clearUserData, getToken, getUserAvatar } from '../../../store/userData';
+import { clearUserData, getToken, getUserAvatar } from '../../../store/userData/types';
 import { STORAGE_KEYS, clearStorageItem } from '../../..';
 import styles from './header.module.css';
 

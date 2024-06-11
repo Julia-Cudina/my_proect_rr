@@ -1,6 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { postAuthData } from './effects';
+import { STORAGE_KEYS, getStorageItem } from 'utils/storage';
 
 
 type User = {
@@ -70,4 +71,5 @@ export const { setIsLoading, setUserData } = userDataSlice.actions;
 
 export const { getIsLoading, getToken, getUserAvatar } = userDataSlice.selectors;
 
-console.log(userDataSlice);
+
+

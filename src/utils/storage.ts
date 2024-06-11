@@ -1,9 +1,9 @@
-export enum STORAGE_KEY  {
+export enum STORAGE_KEYS  {
     USER_DATA = 'USER_DATA',
     LAST_ONLINE = 'LAST_ONLINE',
 }
 
-export const getStorageItem = (key: string) => {
+export const getStorageItem = (key: STORAGE_KEYS) => {
     const item = localStorage.getItem(key);
 
 if(item) {
@@ -17,7 +17,7 @@ if(item) {
 
 };
 
-export const setStorageitem = (key: string, value: unknown) => {
+export const setStorageitem = (key: STORAGE_KEYS, value: unknown) => {
 try {
     const serializedValue = JSON.stringify(value)
     localStorage.setItem(key, serializedValue)
@@ -25,3 +25,7 @@ try {
     console.error('Error while setting value for key ${key}', e);
  } 
 };
+
+export const clearStorageItem = (key: STORAGE_KEYS) => {
+    localStorage.removeItem(key);
+  };
