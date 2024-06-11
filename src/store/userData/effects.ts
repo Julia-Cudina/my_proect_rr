@@ -1,16 +1,16 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { post } from '../../transport';
-import { STORAGE_KEYS, setStorageitem } from '../../utils/storage';
+import { STORAGE_KEYS, setStorageItem } from '../../utils/storage';
 import { AuthFormData, AuthResponse } from './types';
 
 export const postAuthData = createAsyncThunk('userData/postAuth', async (payload: AuthFormData) => {
-    const {
-        data: { data,token},
-     } = await post<AuthResponse>('/auth', payload);
-    
-      const userData = { ...data, token };
+  const {
+    data: { data, token },
+  } = await post<AuthResponse>(`/auth`, payload);
 
-      setStorageitem(STORAGE_KEYS.USER_DATA, userData);
+  const userData = { ...data, token };
 
-      return userData;
+  setStorageItem(STORAGE_KEYS.USER_DATA, userData);
+
+  return userData;
 });

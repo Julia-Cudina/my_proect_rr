@@ -1,6 +1,5 @@
 export enum STORAGE_KEYS  {
     USER_DATA = 'USER_DATA',
-    LAST_ONLINE = 'LAST_ONLINE',
 }
 
 export const getStorageItem = (key: STORAGE_KEYS) => {
@@ -10,14 +9,15 @@ if(item) {
     try {
         return JSON.parse(item)
     } catch(e) {
-        console.error('Parsing error for ${key}');
+        console.error('Parsing error for ${key}', e);
     }
   }
+
   return null;    
 
 };
 
-export const setStorageitem = (key: STORAGE_KEYS, value: unknown) => {
+export const setStorageItem = (key: STORAGE_KEYS, value: unknown) => {
 try {
     const serializedValue = JSON.stringify(value)
     localStorage.setItem(key, serializedValue)

@@ -2,10 +2,9 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../../router/routes';
 import { useAppDispatch } from '../../../store';
-import { clearUserData, getToken, getUserAvatar } from '../../../store/userData/types';
-import { STORAGE_KEYS, clearStorageItem } from '../../..';
-import styles from './header.module.css';
-
+import { clearUserData, getToken, getUserAvatar } from '../../../store/userData';
+import { STORAGE_KEYS, clearStorageItem } from '../../../utils/storage';
+import styles from './header.module.css'; 
 
 export const LoginButton = () => {
   const dispatch = useAppDispatch();
@@ -22,9 +21,9 @@ export const LoginButton = () => {
       <>
         {avatar && <img className={styles.avatar} src={avatar} alt="avatar" />}
 
-        {token && <button className={styles.newPostButton}>
+        <button className={styles.newPostButton} onClick={logoutHandler}>
           Выйти
-        </button>}
+        </button>
       </>
     );
 
