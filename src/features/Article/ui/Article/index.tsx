@@ -1,31 +1,12 @@
-import { useEffect, useState } from 'react';
 import { StatsButtons } from 'shared/features/Article/ArticleStatsButtons/StatsButtons';
 import type { Article as ArticleType } from '../../../../shared/types/article';
 import styles from './post.module.css';
 
 type ArticleProps = {
-  id: number;
+  article: ArticleType;
 };
 
-export const Article = ({ id }: ArticleProps) => {
-  const [article, setArticle] = useState<ArticleType | null>(null);
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    fetch(`https://0df6c884deaa53e2.mokky.dev/events/${id}`)
-      .then(res => res.json())
-      .then((articlesData: ArticleType) => {
-        setArticle(articlesData);
-      })
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
-  }, [id]);
-
-  if (!article || isLoading) return <>Loading...</>;
-
+export const ArticleView = ({ article }: ArticleProps) => {
   return (
     <div className={styles.postCard}>
       <div className={styles.centeredContentWrapper}>
@@ -33,10 +14,10 @@ export const Article = ({ id }: ArticleProps) => {
           <div className={styles.headerLeft}>
             <span>{article.section}</span>
             <div className={styles.authorInfo}>
-              <img src={article.authorAvatar} alt={`${article.authorName}'s Avatar`} className={styles.avatar} />
-              <span>{article.authorName}</span>
+              <img src={article.user.avatar} alt={`${article.user.fullName}'s Avatar`} className={styles.avatar} />
+              <span>{article.user.fullName}</span>
             </div>
-            <span>{article.publicationDate}</span>
+            <span>{article.publication_date}</span>
           </div>
           {/* <div className={styles.headerRight}>
             <IconButton>...</IconButton>
@@ -47,7 +28,7 @@ export const Article = ({ id }: ArticleProps) => {
       </div>
 
       <div className={styles.coverImage}>
-        <img src={article.coverImage} alt="Cover" />
+        <img src={article.cover_image} alt="Cover" />
       </div>
 
       <div className={styles.centeredContentWrapper}>{article.content}</div>

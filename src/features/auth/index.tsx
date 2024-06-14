@@ -8,15 +8,6 @@ import { postAuthData } from '../../../src/store/userData/effects';
 import { useAppDispatch } from '../../../src/store';
 import styles from './loginForm.module.css';
 
-type AuthResponse = {
-  data: {
-    id: number;
-    fullName: string;
-    avatar: string;
-    email: string;
-  };
-  token: string;
-};
 
 export const LoginForm = () => {
   const dispatch = useAppDispatch();
@@ -35,8 +26,6 @@ export const LoginForm = () => {
     e.preventDefault();
 
     dispatch(postAuthData(forrmState));
-
-    
   };
 
   if (token) return <Navigate to={ROUTES.ROOT} />;

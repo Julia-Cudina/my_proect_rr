@@ -1,5 +1,3 @@
-import avatar from 'assets/images/avatar.jpg';
-import coverImg from 'assets/images/cover4.webp';
 import { Article } from '../../../types/article';
 import { StatsButtons } from '../ArticleStatsButtons/StatsButtons';
 import s from './post.module.css';
@@ -8,8 +6,6 @@ import { ROUTES } from 'router/routes';
 
 type PostCardProps = {
   postData: Article;
-  // one: string;
-  // two: string;
 };
 
 export const PostCard = (props: PostCardProps) => {
@@ -21,22 +17,21 @@ export const PostCard = (props: PostCardProps) => {
         <div className={s.headerLeft}>
           <span>{postData.section}</span>
           <div className={s.authorInfo}>
-            <img src={avatar} alt="avatar" className={s.avatar} />
-            <span>{postData.authorName}</span>
+            <img src={postData.user.avatar} alt="avatar" className={s.avatar} />
+            <span>{postData.user.fullName}</span>
           </div>
-          <span>{postData.publicationDate}</span>
+          <span>{postData.publication_date}</span>
         </div>
         <div className={s.headerRight}>
           <button className={s.moreOptionsButton}>Подписаться</button>
         </div>
       </div>
-
       <Link to={`${ROUTES.ARTICLE}/${postData.id}`}>
-      <h2>{postData.title}</h2>
+        <h2>{postData.title}</h2>
       </Link>
 
       <div className={s.coverImage}>
-        <img src={coverImg} alt="cover" />
+        <img src={postData.cover_image} alt="cover" />
       </div>
 
       <StatsButtons likes={postData.likes} />
