@@ -1,20 +1,15 @@
 import { ChangeEvent, ReactNode } from 'react';
 import { BaseContainer } from './base-container';
 import { ContentWrapper } from './content-wrapper';
-import { Header, HeaderProps } from './header';
+import { Header } from './header';
 import { MainContent } from './main-content';
 import { Sidebar } from './sidebar';
 
-type PageWrapperProps = {
-  children: ReactNode;
-  onSearchChange?: HeaderProps['onSearchChange'];
-};
-
-export const PageWrapper = ({ children, onSearchChange }: PageWrapperProps) => {
-  console.log('render PageWrapper');
+export const PageWrapper = ({ children }: { children: ReactNode }) => {
+ 
   return (
     <BaseContainer>
-      <Header onSearchChange={onSearchChange} />
+      <Header />
 
       <ContentWrapper>
         <Sidebar />

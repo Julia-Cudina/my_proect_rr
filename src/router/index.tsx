@@ -1,9 +1,11 @@
+import { createBrowserRouter } from 'react-router-dom';
 import { Root } from 'features/core/Root';
+import { ArticlePage } from 'pages/ArticlePage';
+import { AuthPage } from '../pages/Auth';
 import { ChampionshipsPage } from 'pages/ChampionshipsPage';
 import { EventsPage } from 'pages/EventsPage';
-import { createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './routes';
-import { ArticlePage } from 'pages/ArticlePage';
+
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +24,10 @@ export const router = createBrowserRouter([
           path: `${ROUTES.ARTICLE}/:id`,
 
           element: <ArticlePage />,
+        },
+        {
+          path: ROUTES.AUTH,
+          element: <AuthPage />,
         },
         ],
     },

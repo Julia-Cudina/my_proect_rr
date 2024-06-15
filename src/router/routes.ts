@@ -3,6 +3,4 @@ export enum ROUTES {
     CHAMPIONSHIPS = '/championships',
     ARTICLE = '/article',
     AUTH = '/auth',
-    TIMER = '/timer',
-    RESIZE = '/resize',
 }
