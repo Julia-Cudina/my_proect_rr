@@ -3,16 +3,15 @@ import { ChangeEvent } from 'react';
 import { LoginButton } from './LoginButton';
 import styles from './header.module.css';
 
-export type HeaderProps = { onSearchChange?: (e: ChangeEvent<HTMLInputElement>) => void };
-
-export const Header = ({ onSearchChange }: HeaderProps) => {
+export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HTMLInputElement>) => void }) => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.leftSection}>
         <img className={styles.logo} src={logo} alt="logo" />
       </div>
       <div className={styles.centerSection}>
-        <button className={styles.PostButton}>Профиль</button>
+        <input type="text" placeholder="Search" className={styles.searchInput} onChange={onSearchChange} />
+        <button className={styles.newPostButton}>Новый пост</button>
       </div>
       <div className={styles.centerSection}>
         <button className={styles.PostButton}>Результаты</button>
@@ -29,9 +28,7 @@ export const Header = ({ onSearchChange }: HeaderProps) => {
       <div className={styles.centerSection}>
         <button className={styles.PostButton}>Журнал</button>
       </div>
-      <div className={styles.centerSection}>
-        <button className={styles.PostButton}>Организаторы</button>
-      </div>
+      
 
       <div className={styles.rightSection}>
         <LoginButton />
