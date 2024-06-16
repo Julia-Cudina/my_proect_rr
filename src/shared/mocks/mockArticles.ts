@@ -7,7 +7,7 @@ export const mockPosts: Article[] = [
     id: 1,
     section: 'Забеги',
     publication_date: '14 апреля 2024',
-    title: 'Открытые тренировки в парке "Швейцария"',
+    title: 'Забег Победы',
     cover_image: cover,
     views: 13,
     likes: 20,

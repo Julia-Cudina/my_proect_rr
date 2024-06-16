@@ -1,18 +1,19 @@
 .iconButton {
     display: inline-flex;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     padding: 10px;
     border: none;
     background-color: transparent;
-    color: #000;
+    color: rgb(92, 87, 87);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .iconButton:hover {
-    background-color: #f1f3f4;
+    background-color: #b0d1e1;
 }
 
 .icon {

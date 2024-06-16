@@ -14,7 +14,7 @@ export const ArticlePage = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch(`https://0df6c884deaa53e2.mokky.dev/events/${id}`)
+    fetch(`https://0df6c884deaa53e2.mokky.dev/articles/${id}`)
       .then(res => res.json())
       .then((articlesData: Article) => {
         setArticle(articlesData);

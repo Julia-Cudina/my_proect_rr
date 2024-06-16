@@ -60,6 +60,9 @@ export const LoginForm = () => {
         <button type="submit" disabled={isLoading}>
           {isLoading ? 'Обработка данных...' : 'Войти'}
         </button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Обработка данных...' : 'Регистрация'}
+        </button>
       </form>
     </div>
   );
