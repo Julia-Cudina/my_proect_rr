@@ -11,6 +11,8 @@ export const EventsPage = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log('events  render');
+
   const [params, setParams] = useSearchParams();
   const section = params.get('section') || 'all';
 

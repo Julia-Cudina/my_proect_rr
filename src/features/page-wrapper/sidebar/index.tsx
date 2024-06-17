@@ -2,40 +2,50 @@ import classes from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
 import styles from './left-menu.module.css';
 import { ROUTES } from 'router/routes';
+import { useContext } from 'react';
+import { LanguageContext } from 'features/context/i18n';
 
 
 
 export const Sidebar = () => {
+  const i18nData  =  useContext(LanguageContext);
+
+  console.log('sidebar render');
+
+  if(!i18nData) return null
+
+  const { lacales } = i18nData
+
   return (
     <nav className={styles.leftMenu}>
       <div>
         <NavLink to={ROUTES.ROOT} className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
-          <span>События</span>
+          <span>{lacales.events}</span>
         </NavLink>
         <NavLink to={ROUTES.CHAMPIONSHIPS} className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
-          <span>Чемпионаты</span>
+          <span>{lacales.championsips}</span>
         </NavLink>
         <a className={styles.menuItem}>
-          <span>Регистрация</span>
+          <span>{lacales.registration}</span>
         </a>
 
         <div className={styles.menuItem}>
-          <a>Заказы</a>
+          <a>{lacales.orders}</a>
         </div>
         <div className={styles.menuItem}>
-          <a>Оценки</a>
+          <a>{lacales.evaluations}</a>
         </div>
         <div className={styles.menuItem}>
-          <a>Мои чемпионаты</a>
+          <a>{lacales.my_championships}</a>
         </div>
         <div className={styles.menuItem}>
-          <a>Мои клубы</a>
+          <a>{lacales.my_clubs}</a>
         </div>
         <div className={styles.menuItem}>
-          <a>Команды</a>
+          <a>{lacales.teams}</a>
         </div>
         <div className={styles.menuItem}>
-          <a>Тренировки
+          <a>{lacales.traning}
           <hr></hr>
           </a>
         </div>

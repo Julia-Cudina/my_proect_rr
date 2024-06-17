@@ -1,10 +1,18 @@
 import logo from 'assets/images/logo.jpg';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useContext } from 'react';
 import { LoginButton } from './LoginButton';
 import styles from './header.module.css';
+import Select from 'react-select';
+import { LanguageContext } from 'features/context/i18n';
+import { LANGUAGES } from 'shared/types/i18n';
 
 
 export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HTMLInputElement>) => void }) => {
+  const i18nData = useContext(LanguageContext);
+
+  if (!i18nData) return null;
+  const {language, setLanguage} = i18nData
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.leftSection}>
@@ -32,6 +40,17 @@ export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HT
       
 
       <div className={styles.rightSection}>
+        <Select options={[
+          {value: LANGUAGES.EN, label: LANGUAGES.EN}, 
+          {value: LANGUAGES.RU, label: LANGUAGES.RU},
+          ]}
+          value={{label: language, value: language }} 
+          onChange={val => {
+            if (val) {
+              setLanguage(val.value);
+            }
+          }}
+          />
         <LoginButton />
       </div>
     </header>
