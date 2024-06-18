@@ -1,6 +1,6 @@
 body {
     height: 100%;
-    background-color: #f2f2f2;
+    background-color: #deebf1;
 }
 
 
@@ -10,4 +10,12 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+:root {
+    --text-color: red
+}
+
+[data-theme="light"] {
+    --text-color: blue
 }
