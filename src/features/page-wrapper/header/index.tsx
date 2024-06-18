@@ -5,6 +5,8 @@ import styles from './header.module.css';
 import Select from 'react-select';
 import { LanguageContext } from 'features/context/i18n';
 import { LANGUAGES } from 'shared/types/i18n';
+import { ROUTES } from 'router/routes';
+import { Link } from 'react-router-dom';
 
 
 export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HTMLInputElement>) => void }) => {
@@ -20,7 +22,9 @@ export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HT
       </div>
       <div className={styles.centerSection}>
         <input type="text" placeholder="Поиск" className={styles.searchInput} onChange={onSearchChange} />
-        <button className={styles.newPostButton}>Новый пост</button>
+        <Link to={ROUTES.CREATE_ARTICLE} className={styles.newPostButton}>
+        Новый пост
+        </Link>
       </div>
       <div className={styles.centerSection}>
         <button className={styles.PostButton}>Результаты</button>

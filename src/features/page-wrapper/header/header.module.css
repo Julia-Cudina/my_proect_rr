@@ -52,6 +52,15 @@
   text-decoration: none;
 }
 
+.newPostButton {
+  background-color: #48c1e9;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
 
 .activ {
   color: black;

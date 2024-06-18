@@ -3,4 +3,5 @@ export enum ROUTES {
     CHAMPIONSHIPS = '/championships',
     ARTICLE = '/article',
     AUTH = '/auth',
+    CREATE_ARTICLE = '/create-article',
 }
