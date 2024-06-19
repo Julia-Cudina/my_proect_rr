@@ -2,8 +2,8 @@
     min-width: 500px;
     max-width: 700px;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+    padding: 15px;
+    border: 3px solid #a2c9e6;
     border-radius: 5px;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .formField {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .inputField,
@@ -22,12 +22,13 @@
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #bde1f1;
     border-radius: 4px;
 }
 
 .textareaField {
-    min-height: 100px;
+    min-height: 80px;
+    color: #4a5664c7;
 }
 
 .errorMessage {
@@ -47,11 +48,11 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: #0056b3;
+        background-color: #007bff;
     }
 
     &:disabled {
-        background-color: #ccc;
+        background-color: #92d3eb;
         cursor: not-allowed;
     }
 }
@@ -73,7 +74,7 @@
     }
 
     &:disabled {
-        background-color: #ccc;
+        background-color:  #92d3eb;
         cursor: not-allowed;
     }
 }

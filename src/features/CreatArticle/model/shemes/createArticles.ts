@@ -19,12 +19,12 @@ export type CreateArticleParams = CreateArticleForm & {
 
 export const сreateArticleFormValidationScheme = object().shape({
     title: string()
-    .min(3, 'Слишком коротко')
-    .max(10, 'Слишком многословно')
+    .min(3, 'Введите название')
+    .max(20, 'Слишком многословно')
     .required('Заголовок обязательный')
     .default(''),
     description: string().required('Описание обязательно').default(''),
-    cover_image: string().required('Обложка обязательна').default(''),
+    cover_image: string().required('Добавьте фотографию').default(''),
     content: string().required('Содержимое обязательно').default(''),
     section: string().default('tech'),
 });

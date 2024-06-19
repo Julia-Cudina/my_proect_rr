@@ -34,15 +34,15 @@ export const CreateArticleForm = () => {
     >
     <Form>
         <div className={s.formField}>
-            <FormikInput label="Заголовок" name="title" />
+            <FormikInput label="Название" name="title" />
         </div>
 
         <div className={s.formField}>
-            <FormikInput label="Описание" type="textarea" name="description" />
+            <FormikInput label="О чем пост?" type="textarea" name="description" />
         </div>
 
         <div className={s.formField}>
-            <FormikInput label="Обложка" name="cover_image" />
+            <FormikInput label="Фотография" name="cover_image" />
         </div>
 
         <div className={s.formField}>
@@ -55,9 +55,12 @@ export const CreateArticleForm = () => {
                 name="section"
                 component={Select}
                 options={[
-                { label: 'Забеги', value: 'races' },
+                { label: 'Марафон', value: 'marathon' },
+                { label: 'Онлайн-забег', value: 'online_race' },
+                { label: 'Трейл-забег', value: 'trail_race' },
+                { label: 'Беговые тренировки', value: 'кunning_workouts' },
                 { label: 'Полоса препятствий', value: 'obstacle_course' },
-                { label: '<>', value: 'obstacle_course' },
+                { label: 'Чемпионат', value: 'chempionship' },
                 ]}
             />
         </div>
