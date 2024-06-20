@@ -50,13 +50,7 @@ export const Sidebar = () => {
           </a>
         </div>
         <div className={styles.menuItem}>
-          <a>Изменить профиль</a>
-        </div>
-        <div className={styles.menuItem}>
-          <a>Добавить запись</a>
-        </div>
-        <div className={styles.menuItem}>
-          <a>Выйти</a>
+          <a>Настройки</a>
         </div>
       </div>
     </nav>
