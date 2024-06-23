@@ -11,9 +11,9 @@ if(item) {
     } catch(e) {
         console.error('Parsing error for ${key}', e);
     }
-  }
+}
 
-  return null;    
+return null;    
 
 };
 
@@ -23,9 +23,9 @@ try {
     localStorage.setItem(key, serializedValue)
 } catch(e)   {
     console.error('Error while setting value for key ${key}', e);
- } 
+} 
 };
 
 export const clearStorageItem = (key: STORAGE_KEYS) => {
     localStorage.removeItem(key);
-  };
+};

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { userDataSlice } from "store/userData";
 import { STORAGE_KEYS, getStorageItem } from "utils/storage";
 
 const baseInstance = axios.create({ 

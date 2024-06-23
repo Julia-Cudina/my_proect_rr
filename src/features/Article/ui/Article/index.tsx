@@ -19,9 +19,7 @@ export const ArticleView = ({ article }: ArticleProps) => {
             </div>
             <span>{article.publication_date}</span>
           </div>
-          {/* <div className={styles.headerRight}>
-            <IconButton>...</IconButton>
-          </div> */}
+        
         </div>
 
         <h2>{article.title}</h2>
