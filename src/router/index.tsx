@@ -4,6 +4,7 @@ import { ArticlePage } from 'pages/ArticlePage';
 import { AuthPage } from '../pages/Auth';
 import { ChampionshipsPage } from 'pages/ChampionshipsPage';
 import { EventsPage } from 'pages/EventsPage';
+import { RegisterPage } from 'pages/RegisterPage';
 import { ROUTES } from './routes';
 import { CreateArticlePage } from 'pages/CreatArticlePage';
 
@@ -21,6 +22,11 @@ export const router = createBrowserRouter([
             path: ROUTES.CHAMPIONSHIPS,
             element: <ChampionshipsPage />,
         },
+        {
+            path: ROUTES.REGISTER,
+            element: <RegisterPage />,
+        },
+      
         {
           path: `${ROUTES.ARTICLE}/:id`,
 
