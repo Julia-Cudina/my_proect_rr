@@ -6,7 +6,7 @@ import Loader from '../shared/components/loader';
 import { Article } from '../shared/types/article';
 import { get } from 'transport';
 
-export const RegisterPage = () => {
+export const ParticipationPage = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
   const [isLoading, setIsLoading] = useState(false);

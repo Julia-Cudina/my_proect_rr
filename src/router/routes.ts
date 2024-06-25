@@ -1,8 +1,9 @@
 export enum ROUTES {
     ROOT ='/',
     CHAMPIONSHIPS = '/championships',
-    REGISTER = '/register',
+    PARTICIPATION = '/participation',
     ARTICLE = '/article',
     AUTH = '/auth',
     CREATE_ARTICLE = '/create-article',
+    MEMO_EXAMPLE = '/memo-example',
 }

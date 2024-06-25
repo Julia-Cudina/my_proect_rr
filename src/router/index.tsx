@@ -4,10 +4,10 @@ import { ArticlePage } from 'pages/ArticlePage';
 import { AuthPage } from '../pages/Auth';
 import { ChampionshipsPage } from 'pages/ChampionshipsPage';
 import { EventsPage } from 'pages/EventsPage';
-import { RegisterPage } from 'pages/RegisterPage';
+import { ParticipationPage } from 'pages/ParticipationPage';
 import { ROUTES } from './routes';
 import { CreateArticlePage } from 'pages/CreatArticlePage';
-
+import { MemoExamplePage } from '../pages/MemoExample';
 
 export const router = createBrowserRouter([
     {
@@ -23,13 +23,11 @@ export const router = createBrowserRouter([
             element: <ChampionshipsPage />,
         },
         {
-            path: ROUTES.REGISTER,
-            element: <RegisterPage />,
+            path: ROUTES.PARTICIPATION,
+            element: <ParticipationPage />,
         },
-      
         {
           path: `${ROUTES.ARTICLE}/:id`,
-
           element: <ArticlePage />,
         },
         {
@@ -39,6 +37,11 @@ export const router = createBrowserRouter([
         {path: ROUTES.CREATE_ARTICLE,
           element: <CreateArticlePage />,
         },
+        {
+          path: ROUTES.MEMO_EXAMPLE,
+          element: <MemoExamplePage />,
+        },
+
         ],
     },
     

@@ -25,9 +25,10 @@ export const Sidebar = () => {
         <NavLink to={ROUTES.CHAMPIONSHIPS} className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
           <span>{lacales.championsips}</span>
         </NavLink>
-        <a className={styles.menuItem}>
+        <NavLink to={ROUTES.PARTICIPATION} className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
           <span>{lacales.registration}</span>
-        </a>
+        </NavLink>
+        
 
         <div className={styles.menuItem}>
           <a>{lacales.orders}</a>
@@ -52,6 +53,12 @@ export const Sidebar = () => {
         <div className={styles.menuItem}>
           <a>Настройки</a>
         </div>
+        <NavLink
+          to={ROUTES.MEMO_EXAMPLE}
+          className={({ isActive }) => classes(styles.menuItem, { [styles.active]: isActive })}
+        >
+          <span>Результаты</span>
+        </NavLink>
       </div>
     </nav>
   );
