@@ -44,6 +44,8 @@ export const EventsPage = () => {
             { label: 'Все', value: 'all' },
             { label: 'Забеги', value: 'Забеги' },
             { label: 'Полоса препятствий', value: 'Полоса препятствий' },
+            { label: 'Трейлы', value: 'Трейлы' },
+            { label: 'Онлайн-забег', value: 'Онлайн-забег' },
           ]}
         />
       </div>
