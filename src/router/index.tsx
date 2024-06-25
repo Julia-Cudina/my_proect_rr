@@ -4,7 +4,7 @@ import { ArticlePage } from 'pages/ArticlePage';
 import { AuthPage } from '../pages/Auth';
 import { ChampionshipsPage } from 'pages/ChampionshipsPage';
 import { EventsPage } from 'pages/EventsPage';
-import { ParticipationPage } from 'pages/ParticipationPage';
+import { RegistrationPage } from 'pages/RegistrationPage';
 import { ROUTES } from './routes';
 import { CreateArticlePage } from 'pages/CreatArticlePage';
 import { MemoExamplePage } from '../pages/MemoExample';
@@ -23,8 +23,8 @@ export const router = createBrowserRouter([
             element: <ChampionshipsPage />,
         },
         {
-            path: ROUTES.PARTICIPATION,
-            element: <ParticipationPage />,
+            path: ROUTES.REGISTRATION,
+            element: <RegistrationPage />,
         },
         {
           path: `${ROUTES.ARTICLE}/:id`,

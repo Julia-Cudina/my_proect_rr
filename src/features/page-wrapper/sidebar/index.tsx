@@ -25,7 +25,7 @@ export const Sidebar = () => {
         <NavLink to={ROUTES.CHAMPIONSHIPS} className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
           <span>{lacales.championsips}</span>
         </NavLink>
-        <NavLink to={ROUTES.PARTICIPATION} className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
+        <NavLink to={ROUTES.REGISTRATION} className={({isActive}) => classes(styles.menuItem, {[styles.active]: isActive })}>
           <span>{lacales.registration}</span>
         </NavLink>
         
