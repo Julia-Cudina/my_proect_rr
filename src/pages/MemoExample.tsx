@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from 'react';
 export const MemoExamplePage = () => {
   return (
     <div>
-      <h1>Результаты</h1>
+      <h1>Участники</h1>
       <Table />
     </div>
   );
@@ -12,24 +12,30 @@ export const MemoExamplePage = () => {
 interface RowData {
   id: number;
   name: string;
-  place: number;
+  age: number;
 }
 
 function Table() {
   // Массив данных для отображения в таблице
   const [tabelData, setTableData] = useState([
-    { id: 1, name: 'Федор Смолов', place: 1 },
-    { id: 2, name: 'Матвей Сафонов', place: 2 },
-    { id: 3, name: 'Антон Заболотный', place: 3 },
-    { id: 4, name: 'Дмитрий Баринов', place: 4 },
-    { id: 5, name: 'Ренат Жемалетдинов', place: 5 },
-
-    { id: 6, name: 'Наталья Романова', place: 1 },
-    { id: 7, name: 'Мария Синицина', place: 2 },
-    { id: 8, name: 'Ольга Медведева', place: 3 },
-    { id: 9, name: 'Светлана Шунина', place: 4 },
-    { id: 10, name: 'Лидия Васильева', place: 5 },
-
+    { id: 1, name: 'Федотов Артемий Юрьевич', age: 198 },
+    { id: 2, name: 'Смольникова Наталья Федоровна', age: 175 },
+    { id: 3, name: 'Андреева Елена Геннадьевна', age: 172 },
+    { id: 4, name: 'Репин Андрей Валерьевич', age: 161 },
+    { id: 5, name: 'Антонов Михаил Юрьевич', age: 157 },
+    { id: 6, name: 'Ареева Наталья Борисовна', age: 149 },
+    { id: 7, name: 'Никитин Роман Сергеевич', age: 144 },
+    { id: 8, name: 'Романов Денис Александрович', age: 136 },
+    { id: 9, name: 'Рюкзакова Людмила Алексеевна', age: 128 },
+    { id: 10, name: 'Сокольникова Лана Андреевна', age: 122 },
+    { id: 11, name: 'Ястребов Александр Игоревич', age: 119 },
+    { id: 12, name: 'Ермолаева Елена Васильевна', age: 115 },
+    { id: 13, name: 'Стрельцов Вадим Анатольевич', age: 109 },
+    { id: 14, name: 'Рассказова Алина Витальевна', age: 107 },
+    { id: 15, name: 'Юрьев Виталий Андреевич', age: 104 },
+    { id: 16, name: 'Логинов Виктор Сергеевич', age: 102 },
+    { id: 17, name: 'Рузаева Алена Ивановна', age: 101 },
+    { id: 18, name: 'Солнцева Арина Романовна', age: 100 },
     
   ]);
 
@@ -66,17 +72,17 @@ function Table() {
       <input type="text" value={inputValue} onChange={evt => setInputValue(evt.target.value)} />
       <button
         onClick={() => {
-          setTableData(prev => [...prev, { id: prev.length + 1, name: inputValue, place: 30 }]);
+          setTableData(prev => [...prev, { id: prev.length + 1, name: inputValue, age: 30 }]);
         }}
       >
-        Add user
+        Добавить участника
       </button>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Place</th>
+            <th>Номер</th>
+            <th>ФИО участника</th>
+            <th>Рейтинг</th>
           </tr>
         </thead>
         <tbody>
@@ -122,7 +128,7 @@ const Row = (props: RowProps) => {
     >
       <td>{props.id}</td>
       <td>{props.name}</td>
-      <td>{props.place}</td>
+      <td>{props.age}</td>
     </tr>
   );
 };

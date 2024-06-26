@@ -57,7 +57,7 @@ export const Sidebar = () => {
           to={ROUTES.MEMO_EXAMPLE}
           className={({ isActive }) => classes(styles.menuItem, { [styles.active]: isActive })}
         >
-          <span>Результаты</span>
+          <span>Участники</span>
         </NavLink>
       </div>
     </nav>
