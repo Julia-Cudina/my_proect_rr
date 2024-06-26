@@ -31,7 +31,7 @@ export const Sidebar = () => {
         
 
         <div className={styles.menuItem}>
-          <a>{lacales.orders}</a>
+          <a>{lacales.organizers}</a>
         </div>
         <div className={styles.menuItem}>
           <a>{lacales.evaluations}</a>
@@ -51,13 +51,15 @@ export const Sidebar = () => {
           </a>
         </div>
         <div className={styles.menuItem}>
-          <a>Настройки</a>
+          <a>{lacales.settings}
+
+          </a>
         </div>
         <NavLink
           to={ROUTES.MEMO_EXAMPLE}
           className={({ isActive }) => classes(styles.menuItem, { [styles.active]: isActive })}
         >
-          <span>Участники</span>
+          <span>{lacales.participants}</span>
         </NavLink>
       </div>
     </nav>

@@ -8,6 +8,7 @@ import { RegistrationPage } from 'pages/RegistrationPage';
 import { ROUTES } from './routes';
 import { CreateArticlePage } from 'pages/CreatArticlePage';
 import { MemoExamplePage } from '../pages/MemoExample';
+import { OrganizersPage } from 'pages/OrganizersPage';
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
             path: ROUTES.REGISTRATION,
             element: <RegistrationPage />,
         },
+        {
+          path: ROUTES.ORGANIZERS,
+          element: <OrganizersPage />,
+      },
         {
           path: `${ROUTES.ARTICLE}/:id`,
           element: <ArticlePage />,
