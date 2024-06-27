@@ -19,7 +19,7 @@ useEffect(() => {
 
     const queryParams = section === 'all' ? '' : `?section=${section}`;
 
-    get<Article[]>('/championships', {params: section === 'all' ? {} : { section } })
+    get<Article[]>('/organizers', {params: section === 'all' ? {} : { section } })
     .then(({ data }) => {
         setArticles(data);
     })
@@ -31,6 +31,19 @@ return (
     <div>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
         <h2>Организаторы</h2>
+
+        <Select
+            value={section}
+            onChange={e => {
+            params.set('section', e.target.value);
+            setParams(params);
+        }}
+            options={[
+            { label: 'Все', value: 'all' },
+            { label: 'Прошедшие', value: 'Прошедшие' },
+            { label: 'Предстоящие', value: 'Предстоящие' },
+        ]}
+        />
     </div>
 
     {isLoading && <Loader />}

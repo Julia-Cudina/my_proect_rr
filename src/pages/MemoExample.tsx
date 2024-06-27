@@ -72,7 +72,7 @@ function Table() {
       <input type="text" value={inputValue} onChange={evt => setInputValue(evt.target.value)} />
       <button
         onClick={() => {
-          setTableData(prev => [...prev, { id: prev.length + 1, name: inputValue, age: 30 }]);
+          setTableData(prev => [...prev, { id: prev.length + 1, name: inputValue, age: 100 }]);
         }}
       >
         Добавить участника
